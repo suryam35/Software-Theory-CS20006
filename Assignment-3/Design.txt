@@ -1,0 +1,192 @@
+Name : Suryam Arnav Kalra
+Roll No. : 19CS30050
+
+The following are the design details for the classes used in this assignment:
+
+Station Class :
+    private:
+        name -> to store the name of the station -> string value
+    public:
+        GetName() -> to return the name of the station -> made const since may be called by a const Station object
+        friend function for outstreaming
+        operator== () is overloaded since this would be used to check for equality of two stations for getting the distance between them
+        GetDistance() -> to return the distance between the two stations
+
+Date Class:
+    private data members : 
+        date -> unsigned integer  -> stores the current date
+        year -> unsigned integer   -> stores the current year
+        Month , Day -> enum type   -> enumerate the month and day names to numbers
+        month -> Month type       -> stores the current month
+    public methods : 
+        constructor with arguments -> date , month , year
+        copy constructor
+        copy assignment operator
+        print() -> printing the date in dd/mon/yyyy format -> it is const since const date object may call it
+    static constants declared as public:
+        monthNames string array to store month names as string
+        dayNames string array to store day names as string
+    static methods declared as public:
+        UnitTestDate() to test the date functionalities
+
+Railways Class : it will have a singleton object only
+    private:
+        pointer to railway class to have the singleton object
+        constructor is private to create a singleton class
+    public:
+        copy constructor and copy assignment operator are blocked
+        GetDistance() -> to return the distance between two stations
+    static :
+        sStations -> vector to store the list of stations
+        sDistStations -> vector of pair of pair stations and integer to store the distance between two stations
+
+
+Booking Class : 
+    private:
+        fromStation -> to store the departure station
+        toStation -> to store the arrival station
+        date -> to store the date -> const since it won't change in the future
+        bookingClass -> to store the booking class -> const reference since it won't change
+        bookingStatus -> bool value set to true 
+        bookingMessage -> string value set to BOOKING SUCCEEDED 
+        passenger -> to store the passenger information -> currently set to null
+    public:
+        the destructor is made virtual to avoid slicing if in case it is made a polymorphic hierarchy
+        ComputeFare() -> function to compute the fare for the booking -> made virtual to extend it to a polymorphic hierarchy -> const since maybe called by a const booking object
+        copy constructor and copy assignment operator are blocked
+        in the destructor the booking is popped from the sBookings vector
+        constructor has defualt arguments for bookingstatus , bookingmessage , passenger
+    static public constants:
+        sBaseFarePerKM -> float value to store the base fase per km 
+        sBookings -> vector of Booking pointers to store the bookings
+        sBookingPNRSerial -> int value to store the PNR unique id of the booking
+        sACSurcharge -> float value to store the AC surcharge
+        sLuxuryTaxPercent -> float value to store the luxury tax percentage
+
+
+
+BookingClasses class:  this is an abstract base class
+    protected data members :
+        loadFactor -> stores the loading factor of the class -> float value
+        name -> name of the booking class -> string value
+    public functions :  
+        All functions are pure virtual functions and const since a const object would be calling these functions
+        GetLoadFactor()  -> return the load factor of the class -> float value
+        GetName()  -> return the name of the booking class -> string value
+        IsAC()    -> return if the class is AC or not -> bool value    
+        IsLuxury() -> return if the class is luxury or not -> bool value
+        IsSitting() -> return if the class is sitting or not -> bool value
+        GetNumberOfTiers() -> return the number of tiers in the class -> int value
+        ChangeLoadFactor() -> this is made virtual for future extension of the program
+
+Seat Class : Derives from the BookingClasses -> is an abstract base class for those classes which are sitting
+Berth Class : Derives from the BookingClasses -> is an abstract base class for those classes which are non-sitting
+
+Tier0 Class : Derives from the Seat Class -> is an abstract base class for those classes which have 0 Tiers
+Tier2 Class : Derives from the Berth Class -> is an abstract base class for those classes which have 2 Tiers
+Tier3 Class : Derives from the Berth Class -> is an abstract base class for those classes which have 3 Tiers
+
+AC2Tier Class : derives from the Tier2Class
+    private:
+        isAC -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury -> bool value to store if it is Luxury
+        numberOfTiers -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat -> bool value to store if it has seat -> const since it won't change in future
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+AC3Tier Class : derives from the Tier3Class
+    private:
+        isAC -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury -> bool value to store if it is Luxury
+        numberOfTiers -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat -> bool value to store if it has seat -> const since it won't change in future
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+ACChairCar Class : derives from the Tier0Class
+    private:
+        isAC -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury -> bool value to store if it is Luxury
+        numberOfTiers -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat -> bool value to store if it has seat -> const since it won't change in future
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+ACFirstClass Class : derives from the Tier2Class
+    private:
+        isAC -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury -> bool value to store if it is Luxury
+        numberOfTiers -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat -> bool value to store if it has seat -> const since it won't change in future
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+FirstClass Class : derives from the Tier2Class
+    private:
+        isAC -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury -> bool value to store if it is Luxury
+        numberOfTiers -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat -> bool value to store if it has seat -> const since it won't change in future
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+SecondSitting Class : derives from the Tier0Class
+    private:
+        isAC -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury -> bool value to store if it is Luxury
+        numberOfTiers -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat -> bool value to store if it has seat -> const since it won't change in future
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+Sleeper Class : derives from the Tier3Class
+    private:
+        isAC -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury -> bool value to store if it is Luxury
+        numberOfTiers -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat -> bool value to store if it has seat -> const since it won't change in future
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above

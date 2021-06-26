@@ -1,0 +1,66 @@
+Name : Suryam Arnav Kalra
+Roll No. : 19CS30050
+
+Scenarios for Test Application :
+1) when the arrival and departure stations are same the fare computed should be zero
+2) the fare for station A to station B and station B to station A should be the same
+3) multiple bookings should be allowed on the same date
+4) multiple bookings from the same departure station should be allowed
+5) multiple bookings to the same arrival station should be allowed
+6) multiple bookings for the same booking class should be allowed
+7) different booking classes for the same set of stations should be allowed
+8) the PNR should serially increase for each booking
+9) each booking must be added to the booking vector
+10) the fare should be computed correctly according to the logic given.
+11) the fare between two stations should be independent of the date
+
+Scenarios for Unit Testing :  (Golden outputs are provided in the unit test function of the respective classes)
+
+AC2Tier : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+AC3Tier : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+ACChairCar : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+ACFirstClass : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+FirstClass : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+SecondSitting : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+Sleeper : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+Booking Class :
+    fromStation should be correct
+    toStation should be correct
+    date should be properly set
+    booking status should be properly set
+    booking message should be properly set
+    bookingclass is already tested for its unit functionality above
+
+Railway Class :
+    a given station should be found in the station vector of the class.
+    GetDistance() function should return the distance between two station.
+
+Station Class :
+    stations are constructed correctly
+    two stations with the same name should be equal
+    GetName() function should properly return the name of the station
+    GetDistance() function should return the distance between the two stations.
+
+Date Class :
+    the date is constructed properly according to the given parameters
