@@ -1,0 +1,466 @@
+Name : Suryam Arnav kalra
+Roll No : 19CS30050
+
+Station Class :
+    private data member:
+        name_ -> to store the name of the station -> string value
+    public methods:
+        GetName() -> to return the name of the station -> made const since may be called by a const Station object
+        friend function for outstreaming
+        operator== () is overloaded since this would be used to check for equality of two stations for getting the distance between them
+        GetDistance() -> to return the distance between the two stations
+	CheckValid() --> to check if the station name is not empty , throws exception BadStation
+
+Date Class : 
+    private data members:
+        date_ -> stores the current date -> unsigned integer     
+        year_ -> stores the current year -> unsigned integer
+        month_ -> stores the current month -> Month type
+        Month, Day -> enumerate the month and day names to numbers -> enum type
+    public data members:
+        constructor with arguments -> date , month , year
+        copy constructor
+        copy assignment operator
+        print() -> printing the date in dd/mon/yyyy format -> it is const since const date object may call it
+        CheckLeapYear() -> checks if the current year is leap year or not -> boolean 
+        CalculateAge() -> calculate the age of the argument given from the current date -> int
+        CheckSpanOfYear() -> checks if the difference between the current date and the give date is more / less than 365 days : boolean
+	CheckValid() -> checks if the date is valid , throws exception BadDate if not valid
+    static constants declared as public:
+        monthNames string array to store month names as string
+        dayNames string array to store day names as string
+    static methods declared as public:
+        UnitTestDate() to test the date functionalities
+
+Railways Class : it will have a singleton object only
+    private:
+        pointer to railway class to have the singleton object
+        constructor is private to create a singleton class
+    public:
+        copy constructor and copy assignment operator are blocked
+        GetDistance() -> to return the distance between two stations
+    static :
+        sStations -> vector to store the list of stations
+        sDistStations -> vector of pair of pair stations and integer to store the distance between two stations
+
+BookingClasses class:  this is an abstract base class
+    protected data members :
+        loadFactor -> stores the loading factor of the class -> float value
+        name -> name of the booking class -> string value
+        reservationCharges_ -> stores the reservation charges of the class -> float value
+    public functions :  
+        All functions are pure virtual functions and const since a const object would be calling these functions
+        GetLoadFactor()  -> return the load factor of the class -> float value
+        GetName()  -> return the name of the booking class -> string value
+        IsAC()    -> return if the class is AC or not -> bool value    
+        IsLuxury() -> return if the class is luxury or not -> bool value
+        IsSitting() -> return if the class is sitting or not -> bool value
+        GetNumberOfTiers() -> return the number of tiers in the class -> int value
+	GetReservationCharge() -> return the reservation charge of the class -> int value
+        GetMinimumTatkalCharge() -> return the minimum tatkal charge -> int
+        GetMaximumTatkalCharge() -> return the maximum tatkal charge -> int  
+        GetMinimumTatkalDistance() -> return the minimum tatkal distance -> int
+
+AC2Tier Class : 
+    private:
+        isAC_ -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury_ -> bool value to store if it is Luxury
+        numberOfTiers_ -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat_ -> bool value to store if it has seat -> const since it won't change in future
+        tatkalLoadFactor_ -> float value to store the tatkal load factor of the class -> float value
+        minimumTatkalCharge_ -> int value to store the minimum tatkal charge -> int 
+        maximumTatkalCharge_ -> int value to store the maximum tatkal charge -> int 
+        minimumTatkalDistance_ -> int value to store the minimum tatkal distance -> int 
+	reservationCharge_ -> int value to store the reservation charge -> int
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+FirstClass Class : 
+    private:
+        isAC_ -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury_ -> bool value to store if it is Luxury
+        numberOfTiers_ -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat_ -> bool value to store if it has seat -> const since it won't change in future
+        tatkalLoadFactor_ -> float value to store the tatkal load factor of the class -> float value
+        minimumTatkalCharge_ -> int value to store the minimum tatkal charge -> int 
+        maximumTatkalCharge_ -> int value to store the maximum tatkal charge -> int 
+        minimumTatkalDistance_ -> int value to store the minimum tatkal distance -> int 
+	reservationCharge_ -> int value to store the reservation charge -> int
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+AC2FirstClass Class : 
+    private:
+        isAC_ -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury_ -> bool value to store if it is Luxury
+        numberOfTiers_ -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat_ -> bool value to store if it has seat -> const since it won't change in future
+        tatkalLoadFactor_ -> float value to store the tatkal load factor of the class -> float value
+        minimumTatkalCharge_ -> int value to store the minimum tatkal charge -> int 
+        maximumTatkalCharge_ -> int value to store the maximum tatkal charge -> int 
+        minimumTatkalDistance_ -> int value to store the minimum tatkal distance -> int 
+	reservationCharge_ -> int value to store the reservation charge -> int
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+AC3Tier Class : 
+    private:
+        isAC_ -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury_ -> bool value to store if it is Luxury
+        numberOfTiers_ -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat_ -> bool value to store if it has seat -> const since it won't change in future
+        tatkalLoadFactor_ -> float value to store the tatkal load factor of the class -> float value
+        minimumTatkalCharge_ -> int value to store the minimum tatkal charge -> int 
+        maximumTatkalCharge_ -> int value to store the maximum tatkal charge -> int 
+        minimumTatkalDistance_ -> int value to store the minimum tatkal distance -> int 
+	reservationCharge_ -> int value to store the reservation charge -> int
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+Sleeper Class : 
+    private:
+        isAC_ -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury_ -> bool value to store if it is Luxury
+        numberOfTiers_ -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat_ -> bool value to store if it has seat -> const since it won't change in future
+        tatkalLoadFactor_ -> float value to store the tatkal load factor of the class -> float value
+        minimumTatkalCharge_ -> int value to store the minimum tatkal charge -> int 
+        maximumTatkalCharge_ -> int value to store the maximum tatkal charge -> int 
+        minimumTatkalDistance_ -> int value to store the minimum tatkal distance -> int 
+	reservationCharge_ -> int value to store the reservation charge -> int
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+SecondSitting Class : 
+    private:
+        isAC_ -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury_ -> bool value to store if it is Luxury
+        numberOfTiers_ -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat_ -> bool value to store if it has seat -> const since it won't change in future
+        tatkalLoadFactor_ -> float value to store the tatkal load factor of the class -> float value
+        minimumTatkalCharge_ -> int value to store the minimum tatkal charge -> int 
+        maximumTatkalCharge_ -> int value to store the maximum tatkal charge -> int 
+        minimumTatkalDistance_ -> int value to store the minimum tatkal distance -> int 
+	reservationCharge_ -> int value to store the reservation charge -> int
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+ExecutiveChairCar Class : 
+    private:
+        isAC_ -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury_ -> bool value to store if it is Luxury
+        numberOfTiers_ -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat_ -> bool value to store if it has seat -> const since it won't change in future
+        tatkalLoadFactor_ -> float value to store the tatkal load factor of the class -> float value
+        minimumTatkalCharge_ -> int value to store the minimum tatkal charge -> int 
+        maximumTatkalCharge_ -> int value to store the maximum tatkal charge -> int 
+        minimumTatkalDistance_ -> int value to store the minimum tatkal distance -> int 
+	reservationCharge_ -> int value to store the reservation charge -> int
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+ACChairCar Class : 
+    private:
+        isAC_ -> bool value to store if it has AC  -> const since it won't change in future
+        isLuxury_ -> bool value to store if it is Luxury
+        numberOfTiers_ -> int value to store the number of tiers  -> const since it won't change in future
+        hasSeat_ -> bool value to store if it has seat -> const since it won't change in future
+        tatkalLoadFactor_ -> float value to store the tatkal load factor of the class -> float value
+        minimumTatkalCharge_ -> int value to store the minimum tatkal charge -> int 
+        maximumTatkalCharge_ -> int value to store the maximum tatkal charge -> int 
+        minimumTatkalDistance_ -> int value to store the minimum tatkal distance -> int 
+	reservationCharge_ -> int value to store the reservation charge -> int
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public : 
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+BookingCategory class:  this is an abstract base class
+    protected data members :
+        name_ -> name of the booking class -> string value
+    public functions :  
+        GetName()  -> return the name of the booking class -> string value
+        CreateBooking() -> this method takes the booking class type , stations, dates and return a pointer to the booking object created -> Booking *
+
+General class: derives from BookingCategory class 
+    private:
+        constructor is private to make singleton class
+    public:
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+Tatkal class: derives from BookingCategory class 
+    private:
+        constructor is private to make singleton class
+    public:
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+PremiumTatkal class: derives from BookingCategory class 
+    private:
+        constructor is private to make singleton class
+    public:
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+Concessions Class : Derives from the BookingCategory -> is an abstract base class for those classes which are for concessions
+
+SeniorCitizen class: derives from Concessions class 
+    private:
+        constructor is private to make singleton class
+    public:
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+Ladies class: derives from Concessions class 
+    private:
+        constructor is private to make singleton class
+    public:
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+Divyaang Class : Derives from the Concessions -> is an abstract base class for those classes which under Divyaang
+
+Blind class: derives from Divyaang class 
+    private:
+        constructor is private to make singleton class
+    public:
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+    static public constants:
+        sConcessions -> vector of pair of string and float to store the master data for the class
+
+CancerPatient class: derives from Divyaang class 
+    private:
+        constructor is private to make singleton class
+    public:
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+    static public constants:
+        sConcessions -> vector of pair of string and float to store the master data for the class
+
+OrthopadicallyHandicapped class: derives from Divyaang class 
+    private:
+        constructor is private to make singleton class
+    public:
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+    static public constants:
+        sConcessions -> vector of pair of string and float to store the master data for the class
+
+TBPatient class: derives from Divyaang class 
+    private:
+        constructor is private to make singleton class
+    public:
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+    static public constants:
+        sConcessions -> vector of pair of string and float to store the master data for the class
+
+Booking class:  this is an abstract base class
+    protected data memnbers:
+        pnr_ -> stores the pnr of the current booking -> int
+        fromStation_ -> stores the start station of the Booking -> Station
+        toStation_ -> stores the end station of the Booking -> Station
+        dateOfReservation_ -> stores the date of reservation -> Date
+        dateOfBooking_ -> stores the date of Booking -> Date
+        bookingStatus_ -> stores the status of the Booking -> boolean
+        bookingMessage_ -> stores the message for booking -> string
+        passenger_ -> stores the passenger for which the booking is initiated -> Passenger
+    public methods:
+        ComputeFare() -> virtual method for Fare computation 
+	CheckValid() -> checks if the booking is valid , throws BadBooking exception if invalid
+    static public constants:
+        sBaseFarePerKM -> float value to store the base fase per km 
+        sBookings -> vector of Booking pointers to store the bookings
+        sBookingPNRSerial -> int value to store the PNR unique id of the booking
+
+GeneralBooking class: derives from Booking class 
+    public methods:
+        ComputeFare() -> Concrete method for Fare computation according to general class
+    
+TatkalBooking class: derives from Booking class 
+    public methods:
+        ComputeFare() -> Concrete method for Fare computation according to general class
+    
+PremiumTatkalBooking class: derives from Booking class 
+    public methods:
+        ComputeFare() -> Concrete method for Fare computation according to general class
+
+ConcessionsBooking class: derives from Booking class 
+	Abstract base class for concession bookings
+
+Ladies class: derives from Concessions class 
+    public methods:
+        ComputeFare() -> Concrete method for Fare computation according to general class
+
+SeniorCitizen class: derives from Concessions class 
+    public methods:
+        ComputeFare() -> Concrete method for Fare computation according to general class
+
+Divyaang class: derives from Concessions class 
+    Abstract base class for divyang booking
+
+Blind class: derives from Divyaang class 
+    public methods:
+        ComputeFare() -> Concrete method for Fare computation according to general class
+
+OrthopadicallyHandicapped class: derives from Divyaang class 
+    public methods:
+        ComputeFare() -> Concrete method for Fare computation according to general class
+
+CancerPatients class: derives from Divyaang class 
+    public methods:
+        ComputeFare() -> Concrete method for Fare computation according to general class
+
+TBpatients class: derives from Divyaang class 
+    public methods:
+        ComputeFare() -> Concrete method for Fare computation according to general class
+
+Gender class: this is an abstract base class
+    protected:
+        name_ -> stores the name -> string
+    public:
+        GetTitle() -> returns the title for the current object -> string
+        IsMale() -> checks if the person is male or female -> boolean
+        GetName() -> returns the title for the current object -> string
+
+Male class: derives from Gender class
+    private:
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public:
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+        
+Female class: derives from Gender class
+    private:
+        constructor is private to make singleton class
+        static pointer to the singleton object of the class
+    public:
+        copy constructor and copy assignment operator are blocked
+        friend function for output streaming
+        static function for unit testing
+        Type() function to return the singleton object of the class
+        pure virtual functions from the abstract class are implemented as given above
+
+Passenger class: 
+    private data members :
+        firstName_ -> stores the first name of the Passenger -> string value
+        middleName_ -> stores the middle name of the Passenger -> string value
+        dateOfBirth_ -> stores the date of birth of the Passenger -> Date
+        gender_ -> stores the gender of the Passenger -> Gender
+        aadhar_ -> stores the aadhar of the Passenger -> string value
+        mobile_ -> stores the mobile of the Passenger -> string value
+        disabilitytype_ -> stores the disability type of the Passenger (optional) -> string value
+        disabilityID -> stores the disability ID of the Passenger (optional) -> string  
+    public methods : 
+        CheckAadhar() -> method to validate aadhar of Passenger -> boolean type
+        CheckName() -> method to validate Name of Passenger -> boolean type
+        CheckDateOfBirth() -> method to validate Date of Birth of Passenger -> boolean type
+        CheckMobile() -> method to validate Mobile number of Passenger -> boolean type
+        GetAadhar() -> returns aadhar of the passenger -> string 
+        GetName() -> returns Name of the passenger -> string 
+        GetGender() -> returns Gender of the passenger -> Gender
+        GetMobile() -> returns the mobile number of the passenger -> string
+        GetdisabilityID -> returns the disability ID of the passenger -> string
+        GetDisabilityType() -> returns the disability type of the passenger -> string
+	CheckValid() -> checks if the passenger is valid , throws BadPassenger exception if found invalid
+
+exception class : taken from the std::exception class of C++ 
+
+BadDate class : derives from exception class
+    public:
+	what() --> returns a string containing bad date information
+
+BadBooking class : derives from exception class
+    public:
+	what() --> returns a string containing bad booking information
+
+BadPassenger class : derives from exception class
+    public:
+	what() --> returns a string containing bad passenger information
+
+BadRailways class : derives from exception class
+    public:
+	what() --> returns a string containing bad railways information
+
+BadStation class : derives from exception class
+    public:
+	what() --> returns a string containing bad station information
